@@ -23,25 +23,14 @@ const { getIpv4MappedIpv6Address } = require(path.join(__dirname, 'ipv6.js'));
 */
 const IPCIDR = require('ip-cidr');
 
-
-
-/*
-  This section is used to test function and log any errors.
-  We will make several positive and negative tests.
-*/
-function main() {
-  // Create some test data for getFirstIpAddress(), both valid and invalid.
-  let sampleCidrs = ['172.16.10.0/24', '172.16.10.0 255.255.255.0', '172.16.10.128/25', '192.168.1.216/30'];
-  l
-
-  /**
+/**
  * Calculate and return the first host IP address from a CIDR subnet.
  * @param {string} cidrStr - The IPv4 subnet expressed
  *                 in CIDR format.
  * @param {callback} callback - A callback function.
  * @return {string} (firstIpAddress) - An IPv4 & IPv6 address.
  */
- getFirstIpAddress(cidrStr, callback) {
+function getFirstIpAddress(cidrStr, callback) {
 
   // Initialize return arguments for callback
   let firstIpAddress = {
@@ -77,10 +66,17 @@ function main() {
   // data as the second argument to the callback function.
   return callback(firstIpAddress, callbackError);
 }
-et sampleCidrsLen = sampleCidrs.length;
- 
 
-module.exports = new IpAddress; // Create some test data for getIpv4MappedIpv6Address, both valid and invalid.
+
+/*
+  This section is used to test function and log any errors.
+  We will make several positive and negative tests.
+*/
+function main() {
+  // Create some test data for getFirstIpAddress(), both valid and invalid.
+  let sampleCidrs = ['172.16.10.0/24', '172.16.10.0 255.255.255.0', '172.16.10.128/25', '192.168.1.216/30'];
+  let sampleCidrsLen = sampleCidrs.length;
+  // Create some test data for getIpv4MappedIpv6Address, both valid and invalid.
   let sampleIpv4s = [ '172.16.10.1', '172.16.10.0/24', '172.16.10.0 255.255.255.0', '172.16.256.1', '1.1.1.-1'];
   let sampleIpv4sLen = sampleIpv4s.length;
 
